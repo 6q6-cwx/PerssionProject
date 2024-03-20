@@ -6,7 +6,7 @@ import '../src/assets/css/index.css'
 // import { } from '@/assets/js/utils'
 // import { getMenu } from '../src/server/api'
 
-
+console.log(process.env.NODE_ENV,'env')
 // await getMenu().then(res=>{
 //   console.log(res,'res')
 // })
