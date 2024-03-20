@@ -1,5 +1,4 @@
 <template>
-  <el-header>
     <div class="header">
       <div class="left">
         <img
@@ -15,7 +14,6 @@
         <el-button size="mini">退出</el-button>
       </div>
     </div>
-  </el-header>
 </template>
 
 <script>

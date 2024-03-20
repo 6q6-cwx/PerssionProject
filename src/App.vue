@@ -1,18 +1,35 @@
 <template>
   <div id="app">
-      <Header></Header>
-      <Sider></Sider>
+    <el-container style="min-height: 100vh">
+      <el-header height="50px">
+        <header-bar></header-bar>
+      </el-header>
+      <el-container>
+        <el-aside width="300px">
+           <aside-bar></aside-bar>
+        </el-aside>
+        <el-main>
+          <!-- <div class="pageTitle">{{pageTitle}}</div> -->
+          <router-view></router-view>
+        </el-main>
+      </el-container>
+    </el-container>
+      <!-- <Header></Header>
+      <Sider></Sider> -->
+      
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Sider from '@/components/Sider.vue'
+import HeaderBar from '@/components/HeaderBar.vue';
+import AsideBar from '@/components/AsideBar.vue';
+// import Sider from '@/components/Sider.vue';
 export default {
   name: 'App',
   components:{
-    Header,
-    Sider
+    HeaderBar,
+    // Sider,
+    AsideBar
   }
 }
 </script>
