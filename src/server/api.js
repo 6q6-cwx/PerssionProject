@@ -1,17 +1,44 @@
-// import { getMenuData } from '../../moke'
+import axios  from "axios";
 
-
-// export const getMenu=()=>{
-//      const data=getMenuData()
-//      console.log(data,'data')
-//      return new Promise((resolve,reject)=>{
-//       this.setTimeout(() => {
-//         resolve(data)
-//       }, 2000);
-    
-//      }).then(()=>{
-//         resolve(data)
-//      }).catch(()=>{
-//         reject()
-//      })
-// }
+axios.create({
+    baseURL:' http://localhost',
+})
+axios.interceptors.response.use((response) =>response
+, (error) => {
+    // let url = window.location.href;
+    // if(url.indexOf('http://localhost')!==-1){
+    //   return
+    // }
+    // if (error.response && error.response.status === 401) {
+    //   location.assign(error.response.data.data)
+    // } else {
+    //   Message({
+    //     message: error.response.data.errmsg,
+    //     type: 'error'
+    //   })
+    // }
+    // return Promise.reject(error);
+  }
+);
+axios.interceptors.require.use((response) =>response
+, (error) => {
+    // let url = window.location.href;
+    // if(url.indexOf('http://localhost')!==-1){
+    //   return
+    // }
+    // if (error.response && error.response.status === 401) {
+    //   location.assign(error.response.data.data)
+    // } else {
+    //   Message({
+    //     message: error.response.data.errmsg,
+    //     type: 'error'
+    //   })
+    // }
+    // return Promise.reject(error);
+  }
+);
+export const post = (params,url) => {
+    //    const param={
+        
+    //    }
+}

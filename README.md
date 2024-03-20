@@ -12,3 +12,5 @@ npm config get registry
 node_modules/
 ## node版本与项目不匹配则npm i时会报 类似 dealTree
 
+## moke数据，掉接口，vuex维护全局数据
+
