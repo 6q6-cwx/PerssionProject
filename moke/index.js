@@ -1,6 +1,6 @@
-// const Moke = require('moke');
+const Moke = require('moke');
 
-// const mokeInstance = new Moke();
+const mokeInstance = new Moke();
 
 export const getMenuData=()=>{
   return {
