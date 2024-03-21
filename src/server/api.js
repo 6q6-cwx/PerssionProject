@@ -1,60 +1,48 @@
 import axios  from "axios";
 
-let httpServe=axios.create({
+const httpServe=axios.create({
     baseURL:'http://localhost:1024',
     timeout: 10000,
 })
-httpServe.get('user/base').then(res=>{
-    console.log(res,'resssss')
-})
-
-console.log(httpServe,'httpServe')
 
 
-// axios.interceptors.response.use((response) =>response
-// , (error) => {
-//     // let url = window.location.href;
-//     // if(url.indexOf('http://localhost')!==-1){
-//     //   return
-//     // }
-//     // if (error.response && error.response.status === 401) {
-//     //   location.assign(error.response.data.data)
-//     // } else {
-//     //   Message({
-//     //     message: error.response.data.errmsg,
-//     //     type: 'error'
-//     //   })
-//     // }
-//     // return Promise.reject(error);
-//   }
-// );
-// axios.interceptors.require.use((response) =>response
-// , (error) => {
-//     // let url = window.location.href;
-//     // if(url.indexOf('http://localhost')!==-1){
-//     //   return
-//     // }
-//     // if (error.response && error.response.status === 401) {
-//     //   location.assign(error.response.data.data)
-//     // } else {
-//     //   Message({
-//     //     message: error.response.data.errmsg,
-//     //     type: 'error'
-//     //   })
-//     // }
-//     // return Promise.reject(error);
-//   }
-// );
-// export const post = (params,url) => {
-//     //    const param={
-        
-//     //    }
-// }
-// export const get=(param,url)=>{
-//   const param={
-     
-//   }
-  
-// }
+httpServe.interceptors.request.use((config) => {
+    // 在这里可以对请求进行预处理
+    // 例如添加请求头
+    // config.headers.Authorization = 'Bearer ' + token;
+    return config;
+  }, (error) => {
+    // 请求错误处理
+    return Promise.reject(error);
+  });
 
-export const httpServ = httpServe
+  httpServe.interceptors.response.use(
+    (response) => {
+      // 在这里可以对响应数据进行处理
+      // 例如统一处理返回的数据格式
+      if (response.data.code !== 0) {
+        console.error('请求失败：', response.data.message);
+      }
+      return response;
+    },
+    (error) => {
+      // 响应错误处理
+      return Promise.reject(error);
+    }
+  );
+
+  httpServe.postMethod = function(url, data) {
+    return this.post(url, data);
+  };
+
+  export default httpServe
+
+
+
+//   httpServe.postMethod('/api/data', { key: 'value' })
+//   .then(response => {
+//     console.log(response.data);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });

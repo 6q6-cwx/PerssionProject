@@ -48,7 +48,7 @@ Mock.mock("user/baseInfo",
     ],
   },
 );
-Mock.mock("user/base",
+Mock.mock("/base",
  {
     username:'jiafeimao'
   },
