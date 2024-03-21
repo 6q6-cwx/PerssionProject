@@ -3,6 +3,18 @@ import App from './App.vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import '../src/assets/css/index.css'
+// import './moke'
+import './server/api'
+
+
+// httpServ.get('user/baseInfo').then(res=>{
+//   console.log(res)
+// })
+
+
+
+
+
 // import { } from '@/assets/js/utils'
 // import { getMenu } from '../src/server/api'
 
