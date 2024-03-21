@@ -1,8 +1,11 @@
 import axios  from "axios";
 
 let httpServe=axios.create({
-    baseURL:'http://localhost:8080',
-    timeout: 10000
+    baseURL:'http://localhost:1024',
+    timeout: 10000,
+})
+httpServe.get('user/base').then(res=>{
+    console.log(res,'resssss')
 })
 
 console.log(httpServe,'httpServe')

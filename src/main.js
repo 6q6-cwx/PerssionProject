@@ -3,7 +3,7 @@ import App from './App.vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import '../src/assets/css/index.css'
-// import './moke'
+import './moke/globaldata'
 import './server/api'
 
 
