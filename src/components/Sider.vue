@@ -8,8 +8,9 @@
         <aside-bar></aside-bar>
         </el-aside>
       <el-main>
-        <div class="main">
-        </div>
+        <!-- <div class="main"> -->
+          <router-view></router-view>
+        <!-- </div> -->
       </el-main>
     </el-container>
   </div>
