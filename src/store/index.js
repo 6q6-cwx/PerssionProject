@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {  global, menu } from './modules'
-
+import {   menu } from './modules'
+// import { MenuList } from './commit'
 
 Vue.use(Vuex)
 
@@ -15,17 +15,22 @@ const store = new Vuex.Store({
       actions: {
         login () {} 
       },
-      getters:{
-
-      },
+      // getters:{ },
       mutations: {
-        login () { }
+        login () {
+          console.log('login')
+         },
+        MenuList(state){
+          console.log(state,'state')
+          state.globalLoading=true
+        },
       },
-      modules: {
-        global, 
-        menu 
-      }
-    }
+      // modules: {
+      //   // ...global, 
+        
+      // }
+    },
+    ...menu 
   }
 })
 

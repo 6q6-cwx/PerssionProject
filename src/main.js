@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import App from './App.vue'
 import ElementUI from 'element-ui';
 import router from './router'
@@ -15,7 +14,6 @@ console.log(process.env.NODE_ENV,'env')
 Vue.config.productionTip = false
 
 
-Vue.use(Vuex)
 Vue.use(ElementUI);
 
 

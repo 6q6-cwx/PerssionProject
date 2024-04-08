@@ -1,14 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
 import newHome from "@/views/NewHome.vue";
-// import store from '@/store'
-
-
+import store from '@/store'
 
 
 Vue.use(Router);
 
-console.log(this.$store,'action===')
+store.commit('global/MenuList')
+const { globalLoading } =store.state.global
+
+// const { data }=store
+// console.log(store,'store==',data)
+// // const { data }=store
+// console.log( global,'-----')
 
 const routes = [{ path: "/new", component: newHome }];
 const router = new Router({
