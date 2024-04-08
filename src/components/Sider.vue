@@ -6,10 +6,10 @@
     <el-container>
       <el-aside width="200px">
         <aside-bar></aside-bar>
-        </el-aside>
+      </el-aside>
       <el-main>
         <!-- <div class="main"> -->
-          <router-view></router-view>
+          <!-- <router-view></router-view> -->
         <!-- </div> -->
       </el-main>
     </el-container>

@@ -9,14 +9,10 @@
            <aside-bar></aside-bar>
         </el-aside>
         <el-main>
-          <!-- <div class="pageTitle">{{pageTitle}}</div> -->
           <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
-      <!-- <Header></Header>
-      <Sider></Sider> -->
-      
   </div>
 </template>
 
@@ -37,7 +33,6 @@ export default {
 <style>
 #app {
   height: 100vh;
-  background-color: pink;
 }
 
 </style>

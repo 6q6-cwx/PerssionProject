@@ -35,6 +35,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #b6b6b6;
   .left {
     .autotitle {
       // color: white;
@@ -50,4 +51,5 @@ export default {
     line-height: 27.6px;
   }
 }
+
 </style>
