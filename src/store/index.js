@@ -1,11 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import modules from './modules'
+import {  global, menu } from './modules'
+
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules,
+  modules:{
+    global:{
+      namespaced: true,
+      state: () => ({ 
+        globalLoading:false,
+       }),
+      actions: {
+        login () {} 
+      },
+      getters:{
+
+      },
+      mutations: {
+        login () { }
+      },
+      modules: {
+        global, 
+        menu 
+      }
+    }
+  }
 })
 
 export default store
