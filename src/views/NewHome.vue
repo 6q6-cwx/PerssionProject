@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'PerssionProjectNewHome',
+  name: 'newHome',
 
   data() {
     return {
@@ -14,7 +14,6 @@ export default {
     };
   },
   created(){
-    // console.log(this.$store,'this.$store====')
   },
 
   mounted() {
