@@ -1,23 +1,36 @@
 import Vue from "vue";
 import Router from "vue-router";
-import newHome from "@/views/NewHome.vue";
+import NewHome from "@/views/NewHome.vue";
 import store from '@/store'
-
 
 Vue.use(Router);
 
-store.commit('global/MenuList')
-const { globalLoading } =store.state.global
+let menuRoterList=[{path:'/',component: NewHome}]
 
-// const { data }=store
-// console.log(store,'store==',data)
-// // const { data }=store
-// console.log( global,'-----')
+const menu={'newHome':NewHome }
 
-const routes = [{ path: "/new", component: newHome }];
+store.commit('global/GlobalMenuList')
+
+const { menuList,globalLoading } =store.state.global
+console.log(globalLoading,'globalLoading')
+
+const getList=(arr)=>{
+  arr.map(item=>{
+    if(item.subMenuList&&item.subMenuList.length!==0){
+      getList(item.subMenuList)
+    }else{
+      menuRoterList.push({
+        path:item.link,
+        component:menu[item.subMenuKey?item.subMenuKey:item.menuKey]
+      })
+    }
+  })
+}
+getList(menuList)
+
 const router = new Router({
   history: "history",
-  routes,
+  routes:menuRoterList,
 });
 
 export default router;

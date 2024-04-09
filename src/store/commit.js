@@ -1,1 +1,1 @@
-export const MenuList = 'MENULIST'
+export const GlobalMenuList = 'GlobalMenuList'

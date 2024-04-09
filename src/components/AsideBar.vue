@@ -8,74 +8,55 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
+      @select="handleSelect"
     >
-    <template v-for="(item) in menu ">
-      <el-submenu :key="item.menuKey">
-        <template slot="title">
-          <i :class="item.icon"></i>
-          <span>{{item.menuTitle}}</span>
-        </template>
-        <template v-for="(children) in item.subMenuList" >
-          <el-menu-item :index="children.subMenuKey" :key="children.subMenuKey">{{ children.subMenuTitle }}</el-menu-item>
-        </template>
-      </el-submenu>
-    </template>
-   
-    <!-- <el-submenu>
-      <template slot="title">
-        <i class="el-icon-location"></i>
-        <span>导航一</span>
-      </template>
-      <el-submenu index="1-4">
-        <template slot="title">选项4</template>
-        <el-menu-item index="1-4-1">选项1</el-menu-item>
-      </el-submenu>
-    </el-submenu> -->
-
-
-
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
+      <template v-for="item in menu">
+        <el-submenu
+          v-if="item.subMenuList && item.code"
+          :key="item.menuKey"
+          :index="item.link ? item.link : item.menuKey"
+        >
+          <template slot="title">
+            <i :class="item.icon"></i>
+            <span>{{ item.menuTitle }}</span>
+          </template>
+          <template v-if="item.subMenuList && item.subMenuList.length !== 0">
+            <template v-for="children in item.subMenuList">
+              <template v-if="children.code">
+                <el-menu-item
+                  :index="children.link"
+                  :key="children.subMenuKey"
+                  >{{ children.subMenuTitle }}</el-menu-item
+                >
+              </template>
+            </template>
+          </template>
         </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
-      </el-menu-item> -->
+        <el-menu-item
+          v-if="!item.subMenuList && item.code"
+          :index="item.link"
+          :key="item.menuKey"
+        >
+          <i :class="item.icon"></i>
+          <span slot="title">{{ item.menuTitle }}</span>
+        </el-menu-item>
+      </template>
     </el-menu>
   </div>
 </template>
 
 <script>
-import moke from "@/store/modules/menu";
 export default {
-  name: "PerssionProjectAsideBar",
-
+  name: "AsideBar",
   data() {
     return {
       menu: [],
     };
   },
-  created(){
-    this.getMenu()
+  created() {
+    this.getMenu();
   },
-
   mounted() {},
-
   methods: {
     handleOpen() {
       console.log("handleOpen");
@@ -84,12 +65,17 @@ export default {
       console.log("handleClose");
     },
     handleSelect(key) {
-      console.log(key);
+      if (window.location.hash === `#${key}`) {
+        return;
+      } else {
+        // console.log(this,'this.....')
+        // console.log(this.$store.state,'$$$$$$')
+        this.$router.push(`${key}`);
+      }
     },
     getMenu() {
-      const { actions } = moke
-      this.menu=actions.getMenus()
-      console.log(this.menu,'this.menu===')
+      const { menuList } = this.$store.state.global;
+      this.menu = menuList;
     },
   },
 };

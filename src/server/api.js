@@ -101,6 +101,8 @@ httpServe.interceptors.request.use((config) => {
     })
   };
 
-  httpServe.postMethod({url:'/'})
+  // httpServe.postMethod({url:'/base'})
+
+  // httpServe.getMoke('user/baseInfo')
 
   export default httpServe

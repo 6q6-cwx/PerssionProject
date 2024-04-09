@@ -1,47 +1,83 @@
-  
-  const state = {
-    menuList:[]
-  }
-  
-  // const actions = {
-  //   logout() {
-  //     logout().then((res) => {
-  //       const { success, errmsg } = res.data
-  //       const setCookie = (key, val, time) => {
-  //         if (typeof key !== 'string' || typeof val !== 'string' ) {
-  //             return false;
-  //         }
-  //         time = time || 7 * 24 * 3600;
-  //         var exp = new Date();
-  //         exp.setTime(exp.getTime() + time * 1000);
-  //         document.cookie = key + '=' + val + ';expires=' + exp.toGMTString();
-  //       }
-      
-  //       const clearCookieByKey = (key) => {
-  //         setCookie(key, "", -1);
-  //       }
-  //       if (success !== true) {
-  //         Message({
-  //           message: errmsg,
-  //           type: 'error'
-  //         })
-  //         return
-  //       }
-  
-  //       clearCookieByKey('l-token')
-  //       window.location.reload()
-  //     })
-  //   },
-  //   getMenu(){
-  //   }
-  // }
-  
-  const mutations = {
-  }
-  
-  export default {
-    state,
-    // actions,
-    mutations
-  }
-  
+import { GlobalMenuList } from '../commit'
+
+// menuKey  subMenuKey  对应组件名称
+// code 菜单权限
+// link 页面路径
+const global = {
+  namespaced: true,
+  state: () => ({
+    globalLoading: false,
+    menuList: [
+      {
+        menuTitle: "个人信息",
+        code: true,
+        icon: "el-icon-user",
+        menuKey: "baseInfo",
+        link: "/baseInfo",
+      },
+      {
+        menuTitle: "系统数据",
+        code: true,
+        icon: "el-icon-s-data",
+        menuKey: "systemdata",
+        subMenuList: [
+          {
+            subMenuTitle: "数据展示",
+            code: true,
+            subMenuKey: "dataShow",
+            link: "/dataShow",
+          },
+        ],
+      },
+      // {
+      //   menuTitle: "信息管理",
+      //   code: true,
+      //   menuKey: "2",
+      //   icon: "el-icon-setting",
+      //   subMenuList: [
+      //     {
+      //       subMenuTitle: "基本信息",
+      //       code: true,
+      //       subMenuKey: "baseinfo",
+      //       link: "/baseinfo",
+      //     },
+      //   ],
+      // },
+      // {
+      //   menuTitle: "数据展示",
+      //   code: true,
+      //   menuKey: "3",
+      //   icon: "el-icon-s-data",
+      //   subMenuList: [
+      //     {
+      //       subMenuTitle: "数据统计",
+      //       code: true,
+      //       subMenuKey: "dataShow",
+      //       link: "/dataShow",
+      //     },
+      //   ],
+      // },
+      // {
+      //   menuTitle: "系统设置",
+      //   code: true,
+      //   menuKey: "newHome",
+      //   icon: "el-icon-s-data",
+      //   link: "/new",
+      // },
+    ],
+  }),
+  actions: {
+    login() {},
+  },
+  mutations: {
+    login() {
+      console.log("login");
+    },
+    [GlobalMenuList](state) {
+      console.log(state, "state");
+      state.globalLoading = true;
+    },
+  },
+};
+
+export default global;

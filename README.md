@@ -12,5 +12,19 @@ npm config get registry
 node_modules/
 ## node版本与项目不匹配则npm i时会报 类似 dealTree
 
-## moke数据，掉接口，vuex维护全局数据
+## moke 
+引入mockjs 工具包 使用axios直接调用定义在moke中的url
+
+## 使用vuex
+引入对应版本的vuex vue2 ->vuex3  vue3->vuex4 vue与vuex版本不匹配的话会导致功能受损(this.$store)
+创建Store的对象，使用module模式
+定义每一个module 
+调用mutations     store.commit('global/MenuList')
+获取每个module store    const { menuList } =store.state.global
+
+使用vuex 获取菜单
+
+
+
+
 

@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "PermissionprojectHeader",
+  name: "HeaderBar",
 
   data() {
     return {};

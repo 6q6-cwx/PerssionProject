@@ -1,37 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import {   menu } from './modules'
-// import { MenuList } from './commit'
+import Vue from "vue";
+import Vuex from "vuex";
+import modules from "./modules";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
 
 const store = new Vuex.Store({
-  modules:{
-    global:{
-      namespaced: true,
-      state: () => ({ 
-        globalLoading:false,
-       }),
-      actions: {
-        login () {} 
-      },
-      // getters:{ },
-      mutations: {
-        login () {
-          console.log('login')
-         },
-        MenuList(state){
-          console.log(state,'state')
-          state.globalLoading=true
-        },
-      },
-      // modules: {
-      //   // ...global, 
-        
-      // }
-    },
-    ...menu 
-  }
-})
+  modules: {
+    global:modules.global,
+  },
+});
 
-export default store
+export default store;
