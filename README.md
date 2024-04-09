@@ -32,8 +32,8 @@ git tag v1.0.1
 git push origin v1.0.1
 
 git tag
-git tag -a v1.0 -m "Release version 1.0" 增加描述
-git show tag_name
+git tag -a v1.0 -m "Release version 1.0" 增加描述  commit中也有描述
+git show tag_name 
 
 
 
