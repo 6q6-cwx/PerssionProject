@@ -24,6 +24,18 @@ node_modules/
 
 使用vuex 获取菜单
 
+## 使用git 打tag 可以找到对应描述的commit
+
+git add .
+git commit -m "完成某个功能"
+git tag v1.0.1
+git push origin v1.0.1
+
+git tag
+git tag -a v1.0 -m "Release version 1.0" 增加描述
+git show tag_name
+
+
 
 
 
