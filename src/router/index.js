@@ -33,4 +33,12 @@ const router = new Router({
   routes:menuRoterList,
 });
 
+router.beforeEach((to, from, next) => {
+  console.log('kkkkk',to, from, next)
+  // if (to.meta.title) {
+  //   document.title = to.meta.title;
+  // }
+  // next();
+});
+
 export default router;

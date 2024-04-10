@@ -35,6 +35,23 @@ git tag
 git tag -a v1.0 -m "Release version 1.0" 增加描述  commit中也有描述
 git show tag_name 
 
+## 简单配置vue.config.js 用于打包
+   可以使用本地node服务来启动
+   步骤：
+       1、npm install -g serve
+       2、serve
+    运行即可
+
+## 
+
+
+
+## 项目内容
+现在已有内容：路由，vuex，moke，axios，config
+增加ts内容
+
+
+
 
 
 
