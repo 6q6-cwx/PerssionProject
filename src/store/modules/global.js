@@ -1,5 +1,5 @@
 import { GlobalMenuList } from '../commit'
-
+import httpServe from '@/server/api'
 // menuKey  subMenuKey  对应组件名称
 // code 菜单权限
 // link 页面路径
@@ -57,26 +57,37 @@ const global = {
       //     },
       //   ],
       // },
-      // {
-      //   menuTitle: "系统设置",
-      //   code: true,
-      //   menuKey: "newHome",
-      //   icon: "el-icon-s-data",
-      //   link: "/new",
-      // },
+      {
+        menuTitle: "系统设置",
+        code: true,
+        menuKey: "newHome",
+        icon: "el-icon-s-data",
+        link: "/new",
+      },
     ],
   }),
   actions: {
     login() {},
+  //  async  getD({commit},params){
+  //    const data = await httpServe.getMoke('user/baseInfo')
+  //   //  .then((res)=>{
+  //   //     console.log(res,'datttttt')
+  //   //   })
+  //    console.log(data,'data===')
+  //     console.log(commit[GlobalMenuList],'commit')
+  //     console.log(params,'params')
+  //   }
   },
   mutations: {
     login() {
       console.log("login");
     },
     [GlobalMenuList](state) {
-      console.log(state, "state");
+      // console.log('GlobalMenuListGlobalMenuListGlobalMenuListGlobalMenuListGlobalMenuListGlobalMenuList')
+      // console.log(state, "state");
       state.globalLoading = true;
     },
+   
   },
 };
 

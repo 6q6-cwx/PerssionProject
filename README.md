@@ -42,12 +42,9 @@ git show tag_name
        2、serve
     运行即可
 
-## 
-
-
 
 ## 项目内容
-现在已有内容：路由，vuex，moke，axios，config
+现在已有内容：路由，vuex，moke，axios，config，
 增加ts内容
 
 

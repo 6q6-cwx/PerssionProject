@@ -35,6 +35,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   console.log('kkkkk',to, from, next)
+  next()
   // if (to.meta.title) {
   //   document.title = to.meta.title;
   // }

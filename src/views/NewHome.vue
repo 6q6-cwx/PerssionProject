@@ -14,6 +14,7 @@ export default {
     };
   },
   created(){
+    this.getData()
   },
 
   mounted() {
@@ -22,6 +23,10 @@ export default {
   },
 
   methods: {
+    getData(){
+      console.log('getDatagetDatagetDatagetDatagetDatagetDatagetData')
+      this.$store.dispatch('global/getD',{name:'jiafeimao'})
+    }
     
   },
 };

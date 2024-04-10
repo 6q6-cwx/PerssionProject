@@ -9,7 +9,9 @@ httpServe.getMoke=(url)=>{
     return new Promise((resolve,reject)=>{
       axios.get(url).then((res)=>{
         console.log(res,'res')
-        resolve(res)
+        setTimeout(()=>{
+          resolve(res.data)
+        },1000)
       }).catch(()=>{
         reject(new Error('Faile request'))
       })
