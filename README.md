@@ -45,8 +45,13 @@ git show tag_name
 
 ## 项目内容
 现在已有内容：路由，vuex，moke，axios，config，
-增加ts内容
 
+需要改进：
+    增加ts，
+    增加国际化配置
+    增加打包配置
+    动态组件
+    公共组件
 
 
 
